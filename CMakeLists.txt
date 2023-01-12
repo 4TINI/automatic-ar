@@ -2,12 +2,12 @@ project(automatic-ar)
 cmake_minimum_required(VERSION 3.1)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS ON)
 
 #set(CMAKE_PREFIX_PATH "~/local/") #uncomment if you have local libraries compiled in ~/local/
 
-find_package(OpenCV 3.0.0 REQUIRED)
+find_package(OpenCV 4.2.0 REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
 find_package(OpenMP)

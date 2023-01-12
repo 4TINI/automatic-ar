@@ -8,7 +8,7 @@
 
 ### Required:
 * [CMake](https://cmake.org/) 3.1
-* [OpenCV](https://opencv.org/) 3.2.0
+* [OpenCV](https://opencv.org/) 4.2.0
 * [Aruco](https://www.uco.es/investiga/grupos/ava/node/26) 3.0.0 (Included in the project)
 
 ### Optional:
@@ -17,7 +17,7 @@
 
 *The project might work with older dependencies however it has not been tested. The code has been tested on Ubuntu 18.04.
 
-## Installing Dependencies on Ubuntu 18.04
+## Installing Dependencies on Ubuntu 20.04
 Required:
 ```shell
 sudo apt install build-essential cmake libopencv-dev

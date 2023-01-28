@@ -15,7 +15,7 @@
 
 * [PCL](http://pointclouds.org/) 1.7.2 (for extra visualization)
 
-*The project might work with older dependencies however it has not been tested. The code has been tested on Ubuntu 18.04.
+*The project might work with older dependencies however it has not been tested. The code has been tested on Ubuntu 20.04.
 
 ## Installing Dependencies on Ubuntu 20.04
 Required:

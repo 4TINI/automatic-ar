@@ -1270,6 +1270,44 @@ void MultiCamMapper::write_text_solution_file(string text_path){
     fs<<"]";
 }
 
+void MultiCamMapper::write_json_text_solution_file(string text_path){
+    
+    cv::FileStorage fs(text_path,cv::FileStorage::WRITE);
+    fs<<"marker_size"<<marker_size;
+    fs<<"transforms_to_root_cam"<<"[";
+    for(std::pair<const int,int> &p : mat_arrays.transforms_to_root_cam.m){
+        fs<<"{:";
+        int cam_id = p.first;
+        int cam_index = p.second;
+        fs<<"cam_id"<<cam_id;
+        fs<<"transform"<<mat_arrays.transforms_to_root_cam.v[cam_index];
+        fs<<"}";
+    }
+    fs<<"]";
+
+    fs<<"transforms_to_root_marker"<<"[";
+    for(std::pair<const int,int> &p : mat_arrays.transforms_to_root_marker.m){
+        fs<<"{:";
+        int marker_id = p.first;
+        int marker_index = p.second;
+        fs<<"marker_id"<<marker_id;
+        fs<<"transform"<<mat_arrays.transforms_to_root_marker.v[marker_index];
+        fs<<"}";
+    }
+    fs<<"]";
+
+    fs<<"root_marker_to_root_cam"<<"[";
+    for(std::pair<const int,int> &p : mat_arrays.object_to_global.m){
+        fs<<"{:";
+        int frame_id = p.first;
+        int frame_index = p.second;
+        fs<<"frame_id"<<frame_id;
+        fs<<"transform"<<mat_arrays.object_to_global.v[frame_index];
+        fs<<"}";
+    }
+    fs<<"]";
+}
+
 
 void MultiCamMapper::visualize_sequence(string path, size_t num_total_frames){
 

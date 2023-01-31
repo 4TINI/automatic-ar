@@ -4,10 +4,10 @@
 
 [H. Sarmadi, R. Muñoz-Salinas, M. A. Berbís and R. Medina-Carnicer, "Simultaneous Multi-View Camera Pose Estimation and Object Tracking With Squared Planar Markers," in IEEE Access, vol. 7, pp. 22927-22940, 2019.](https://doi.org/10.1109/ACCESS.2019.2896648)
 
-## Tested* Dependencies:
+## Dependencies:
 
 ### Required:
-* [CMake](https://cmake.org/) 3.1
+* [CMake](https://cmake.org/) >= 3.1
 * [OpenCV](https://opencv.org/) 4.2.0
 * [Aruco](https://www.uco.es/investiga/grupos/ava/node/26) 3.0.0 (Included in the project)
 
@@ -15,7 +15,7 @@
 
 * [PCL](http://pointclouds.org/) 1.7.2 (for extra visualization)
 
-*The project might work with older dependencies however it has not been tested. The code has been tested on Ubuntu 20.04.
+The code has been tested on Ubuntu 20.04.
 
 ## Installing Dependencies on Ubuntu 20.04
 Required:
@@ -32,26 +32,26 @@ sudo apt install libpcl-dev
 Like a normal cmake project make a build library:
 
 ```shell
-mkdir automatic-ar-build
+mkdir -p build
 ```
 change the current directory to the build directory:
 ```shell
-cd automatic-ar-build
+cd build
 ```
 run cmake to configure the project and generate the makefiles:
 
 ```shell
-cmake ../automatic-ar/
+cmake -DCMAKE_BUILD_TYPE=Release -DOpenCV_DIR=/usr/lib/x86_64-linux-gnu/cmake/opencv4 ..
+
 ```
-in case cmake does not find a library you have automatically, you can manually give cmake the path to where the library's cmake configuration file exists. For example:
-```shell
-cmake ../automatic-ar/ -DOpenCV_DIR=~/local/share/OpenCV
-```
+
 Finally run make to build the binaries
 ```shell
-make
+cmake --build .
 ```
+
 You will find the executables to work with in the apps directory.
+
 ## Sample data
 You can download sample data sets from [here](https://sarmadi.me/public_files/automatic-ar).
 
@@ -65,13 +65,13 @@ unzip box.zip
 ```
 2. Do the marker detection by giving the path of the data set to `detect_markers`:
 ```shell
-detect_markers box
+./detect_markers box
 ```
 After unzipping you will find a file name `aruco.detections` in the data folder path.
 
 3. Apply the algorithm by providing the data folder path and the physical size of the marker to `find_solution`:
 ```shell
-find_solution box 0.05
+./find_solution box 0.05
 ```
 Here `0.05` is the input size of each marker in meters.
 

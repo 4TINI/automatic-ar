@@ -144,7 +144,8 @@ int main(int argc, char*argv[])
         std::chrono::duration<double> d=chrono::system_clock::now()-start;
 
         mcm.write_solution_file(initial_solution_file_path);
-        mcm.write_text_solution_file(initial_solution_file_path+".yaml");
+        // mcm.write_text_solution_file(initial_solution_file_path+".yaml");
+        mcm.write_json_text_solution_file(initial_solution_file_path+".json");
 
 #ifdef PCL
         mcm.visualize_sequence();
@@ -160,7 +161,7 @@ int main(int argc, char*argv[])
         d += chrono::system_clock::now()-start;
 
         mcm.write_solution_file(final_solution_file_path);
-        mcm.write_text_solution_file(final_solution_file_path+".yaml");
+        mcm.write_json_text_solution_file(final_solution_file_path+".json");
 #ifdef PCL
         mcm.visualize_sequence();
         point_cloud_markers.clear();

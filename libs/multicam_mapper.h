@@ -47,6 +47,7 @@ public:
     typename ucoslam::SparseLevMarq<double>::eVector io_vec;
 
     void write_text_solution_file(std::string text_path);
+    void write_json_text_solution_file(std::string text_path);
 
     void visualize_sequence(std::string path="", size_t num_total_frames=0);
 
